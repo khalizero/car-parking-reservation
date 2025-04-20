@@ -1,9 +1,10 @@
 "use client";
-import { setNotification } from "@/store/slices/modal.Slice";
+
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+
 import Cookies from "js-cookie";
+import { toast } from "react-toastify";
 
 const UNVERIFIED_MESSAGE = "User is not verified";
 
@@ -13,9 +14,6 @@ interface Props {
 }
 
 export const useApi = ({ initailLoading, notify }: Props = {}) => {
-
-
-  const dispatch = useDispatch();
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(initailLoading);
   const [error, setError] = useState(null);
@@ -29,40 +27,18 @@ export const useApi = ({ initailLoading, notify }: Props = {}) => {
       setIsLoading(false);
       setError(null);
       if (notify) {
-        dispatch(
-          setNotification({
-            status: "success",
-            message: response?.data?.message,
-          })
+        toast.success(
+          response?.data?.message || "Request Completed Successfully."
         );
       }
       return response;
-    } catch (error) {
+    } catch (error: any) {
       setIsLoading(false);
 
       if (error.response.status == 401) {
-        if (error?.response?.data?.message == UNVERIFIED_MESSAGE) {
-          router.replace("/email-verification-required");
-          dispatch(
-            setNotification({
-              status: "error",
-              message:
-                "You are not verified. Check Spam or get Email for verification.",
-            })
-          );
-        } else {
-          Cookies.remove("token");
-          Cookies.remove("user");
-          router.replace("/login");
-          dispatch(
-            setNotification({
-              status: "error",
-              message:
-                error?.response?.data?.message ||
-                "Your Session has been expired.",
-            })
-          );
-        }
+        toast.error(
+          error?.response?.data?.message || "user session has expired"
+        );
       }
       const errorMessage =
         error?.response?.data?.message ||
@@ -73,5 +49,5 @@ export const useApi = ({ initailLoading, notify }: Props = {}) => {
     }
   };
 
-  return [isLoading, error, makeApiCall, setError];
+  return [isLoading, error, makeApiCall];
 };

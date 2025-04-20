@@ -1,17 +1,27 @@
-import mongoose, { Schema, models, model } from "mongoose";
+import mongoose, { Schema, model, models, Model } from "mongoose";
 
-const UserSchema = new Schema(
+export type Role = "user" | "admin";
+
+export interface IUser {
+  email: string;
+  password: string;
+  role: Role;
+  name?: string;
+  createdAt?: Date;
+  updatedAt?: Date;
+}
+
+const UserSchema = new Schema<IUser>(
   {
-    name: String,
-    email: { type: String, unique: true, required: true },
+    email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    role: {
-      type: String,
-      enum: ["user", "admin"],
-      default: "user",
-    },
+    role: { type: String, enum: ["user", "admin"], default: "user" },
+    name: { type: String },
   },
   { timestamps: true }
 );
 
-export const User = models.User || model("User", UserSchema);
+// ✅ This avoids the `Document` weirdness
+const User: Model<IUser> = models.User || model<IUser>("User", UserSchema);
+
+export { User };

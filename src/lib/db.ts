@@ -11,10 +11,12 @@ export async function connectDB() {
 
   if (!cached.promise) {
     cached.promise = mongoose.connect(MONGODB_URI, {
-      dbName: "your-db-name",
+      dbName: "parking",
     });
   }
 
   cached.conn = await cached.promise;
+
+  console.log("database has been connected")
   return cached.conn;
 }
