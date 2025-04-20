@@ -8,7 +8,7 @@ import {
 export default function Footer() {
   return (
     <footer className="bg-orange-100 px-4 pt-16 pb-10 text-black/70">
-      <div className="gap-12 grid md:grid-cols-2 lg:grid-cols-4 mx-auto max-w-7xl">
+      <div className="gap-12 grid md:grid-cols-2 lg:grid-cols-4 mx-auto max-w-[1500px]">
         {/* Newsletter Subscription */}
         <div className="col-span-2 bg-white/70 shadow-lg backdrop-blur-md p-6 rounded-2xl">
           <h3 className="mb-4 font-semibold text-black/70 text-2xl">
