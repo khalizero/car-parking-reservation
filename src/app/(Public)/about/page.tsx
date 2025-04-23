@@ -41,7 +41,7 @@ const About = () => {
                 We’re Here To Help You Thrive
               </h3>
               <p className="mb-4 text-gray-700 leading-relaxed">
-                At PASPARK, we believe in more than just solutions — we believe
+                At Park Buddy, we believe in more than just solutions — we believe
                 in transformation. Whether you're just getting started or
                 scaling up, our platform is designed to meet your parking
                 management needs efficiently and effectively.
@@ -50,7 +50,7 @@ const About = () => {
                 Our mission is to simplify your everyday parking experience
                 through innovation, user-friendly technology, and a commitment
                 to customer success. Join the community of users who trust
-                PASPARK to help them save time, reduce stress, and stay in
+                Park Buddy to help them save time, reduce stress, and stay in
                 control.
               </p>
               <Link href="/contact">

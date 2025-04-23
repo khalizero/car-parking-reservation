@@ -8,9 +8,9 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: "PASPARK – Reserve Parking Effortlessly",
+  title: "Park Buddy – Reserve Parking Effortlessly",
   description:
-    "Reserve your parking spot instantly with PASPARK. Hassle-free parking at malls, airports, offices, and more.",
+    "Reserve your parking spot instantly with Park Buddy. Hassle-free parking at malls, airports, offices, and more.",
   icons: {
     icon: "/favicon/favicon.ico",
     shortcut: "/favicon/favicon-32x32.png",
@@ -18,17 +18,17 @@ export const metadata = {
   },
   manifest: "/favicon/site.webmanifest",
   openGraph: {
-    title: "PASPARK – Reserve Parking Effortlessly",
+    title: "Park Buddy – Reserve Parking Effortlessly",
     description:
-      "Instantly find and reserve parking in busy areas. From office spaces to shopping centers, PASPARK makes parking easy.",
-    url: "https://paspark.com",
-    siteName: "PASPARK",
+      "Instantly find and reserve parking in busy areas. From office spaces to shopping centers, Park Buddy makes parking easy.",
+    url: "https://Park Buddy.com",
+    siteName: "Park Buddy",
     images: [
       {
         url: "/og-image.png", // Optional but recommended
         width: 1200,
         height: 630,
-        alt: "PASPARK App Preview",
+        alt: "Park Buddy App Preview",
       },
     ],
     locale: "en_US",
@@ -36,9 +36,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "PASPARK – Reserve Parking Effortlessly",
+    title: "Park Buddy – Reserve Parking Effortlessly",
     description:
-      "Find and reserve parking spots in seconds with PASPARK. Simplify your commute, stress-free.",
+      "Find and reserve parking spots in seconds with Park Buddy. Simplify your commute, stress-free.",
     images: ["/og-image.png"], // Optional
   },
 };

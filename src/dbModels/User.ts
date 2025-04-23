@@ -21,7 +21,24 @@ const UserSchema = new Schema<IUser>(
   { timestamps: true }
 );
 
-// ✅ This avoids the `Document` weirdness
+// 🔁 Virtual populate for payments
+UserSchema.virtual("payments", {
+  ref: "Payment",
+  localField: "_id",
+  foreignField: "userId",
+});
+
+// 🔁 Virtual populate for parkings
+UserSchema.virtual("parkings", {
+  ref: "Parking",
+  localField: "_id",
+  foreignField: "userId",
+});
+
+// Include virtuals when converting to JSON or Object
+UserSchema.set("toObject", { virtuals: true });
+UserSchema.set("toJSON", { virtuals: true });
+
 const User: Model<IUser> = models.User || model<IUser>("User", UserSchema);
 
 export { User };

@@ -33,7 +33,7 @@ export default function Header() {
           className="flex items-center gap-2 font-bold text-orange-600 text-3xl"
         >
           <span className="text-4xl">🚗</span>
-          <span>PASPARK</span>
+          <span>Park Buddy</span>
         </Link>
 
         {/* Hamburger (Mobile) */}

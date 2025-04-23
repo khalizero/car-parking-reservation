@@ -18,3 +18,29 @@ export const verifyToken = (token: any) => {
     return null;
   }
 };
+
+export const validateJwtHeaderAndDecode = async (req, res) => {
+  // Get the Authorization header from the request
+  const authHeader = req.headers.get("Authorization");
+
+  if (!authHeader || !authHeader.startsWith("Bearer ")) {
+    return res.json({ error: "Missing or invalid token" }, { status: 401 });
+  }
+
+  const token = JSON.parse(authHeader.split(" ")[1]);
+
+  if (!token) {
+    return res.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
+  // Decode the token to get the user info
+  const decoded = jwt.verify(token, JWT_SECRET) as any;
+
+  console.log({ decoded });
+
+  if (!decoded?._id || !decoded?.role) {
+    return res.json({ error: "Invalid token" }, { status: 403 });
+  }
+
+  return { user: decoded, token };
+};

@@ -1,11 +1,20 @@
+'use client'
+import Link from "next/link";
 import {
   FaFacebookF,
   FaTwitter,
   FaInstagram,
   FaLinkedinIn,
 } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 export default function Footer() {
+
+  
+const handleNewsletterSubmit = (e: React.FormEvent) => {
+  e.preventDefault();
+  toast.success("You've been subscribed to our newsletter!");
+};
   return (
     <footer className="bg-orange-100 px-4 pt-16 pb-10 text-black/70">
       <div className="gap-12 grid md:grid-cols-2 lg:grid-cols-4 mx-auto max-w-[1500px]">
@@ -17,7 +26,7 @@ export default function Footer() {
           <p className="mb-4 text-black/80">
             Stay up to date with our latest updates and offerings.
           </p>
-          <form className="flex sm:flex-row flex-col items-center gap-4 text-black/70">
+          <form className="flex sm:flex-row flex-col items-center gap-4 text-black/70" onSubmit={handleNewsletterSubmit}>
             <input
               type="email"
               placeholder="Your Email"
@@ -37,24 +46,24 @@ export default function Footer() {
           <h4 className="mb-4 font-bold text-xl">Quick Links</h4>
           <ul className="space-y-2 text-black/80 text-sm">
             <li>
-              <a href="#" className="hover:text-black/70 transition">
+              <Link href="/" className="hover:text-black/70 transition">
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="hover:text-black/70 transition">
+              <Link href="/about" className="hover:text-black/70 transition">
                 About
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="hover:text-black/70 transition">
+              <Link href="/pricing" className="hover:text-black/70 transition">
                 Pricing
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="hover:text-black/70 transition">
+              <Link href="/contact" className="hover:text-black/70 transition">
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -63,37 +72,37 @@ export default function Footer() {
         <div>
           <h4 className="mb-4 font-bold text-xl">Follow Us</h4>
           <div className="flex gap-4 mb-6 text-2xl">
-            <a
-              href="#"
+            <Link
+              href="/"
               className="hover:text-purple-300 transition"
               aria-label="Facebook"
             >
               <FaFacebookF />
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              href="/"
               className="hover:text-purple-300 transition"
               aria-label="Twitter"
             >
               <FaTwitter />
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              href="/"
               className="hover:text-purple-300 transition"
               aria-label="Instagram"
             >
               <FaInstagram />
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              href="/"
               className="hover:text-purple-300 transition"
               aria-label="LinkedIn"
             >
               <FaLinkedinIn />
-            </a>
+            </Link>
           </div>
           <div className="space-y-1 text-black/80 text-sm">
-            <p>Email: support@paspark.com</p>
+            <p>Email: support@ParkBuddy.com</p>
             <p>Phone: +123 456 7890</p>
             <p>Location: New York, USA</p>
           </div>
@@ -102,7 +111,7 @@ export default function Footer() {
 
       {/* Bottom */}
       <div className="mt-12 pt-6 border-white/20 border-t text-black/90 text-sm text-center">
-        © {new Date().getFullYear()} PASPARK. All rights reserved.
+        © {new Date().getFullYear()} Park Buddy. All rights reserved.
       </div>
     </footer>
   );

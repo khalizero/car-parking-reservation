@@ -1,5 +1,6 @@
 // app/auth/layout.tsx
 
+import Link from "next/link";
 import { ReactNode } from "react";
 
 type AuthLayoutProps = {
@@ -12,9 +13,13 @@ const AuthLayout = ({ children }: AuthLayoutProps) => {
       <div className="flex w-full min-h-full">
         {/* Left Side: Form Area */}
         <div className="p-8 rounded-lg w-full lg:w-1/2">
-          <h2 className="py-12 font-semibold text-orange-600 text-4xl text-center">
-            Park Buddy 🚗 
-          </h2>
+          <Link href={"/"}>
+            <img
+              src="/images/logo-nobg.png"
+              alt=""
+              className="mx-auto w-[300px] object-cover"
+            />
+          </Link>
           {children}
         </div>
 

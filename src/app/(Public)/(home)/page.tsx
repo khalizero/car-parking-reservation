@@ -42,7 +42,7 @@ export default function Home() {
               muted
               className="shadow-lg rounded-lg w-full h-full object-cover"
             >
-              <source src="/video/animation.mov" type="video/mp4" />
+              <source src="/video/animation.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
